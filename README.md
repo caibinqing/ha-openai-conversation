@@ -2,4 +2,4 @@
 
 Override the core integration. Add `base_url` and `proxy`.
 
-HA version: 2024.9
+HA version: 2024.12.5

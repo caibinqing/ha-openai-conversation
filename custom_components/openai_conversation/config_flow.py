@@ -26,6 +26,7 @@ from homeassistant.helpers.selector import (
     SelectSelectorConfig,
     TemplateSelector,
 )
+from homeassistant.helpers.typing import VolDictType
 
 from .const import (
     CONF_BASE_URL,
@@ -86,7 +87,7 @@ class OpenAIConfigFlow(ConfigFlow, domain=DOMAIN):
                 step_id="user", data_schema=STEP_USER_DATA_SCHEMA
             )
 
-        errors = {}
+        errors: dict[str, str] = {}
 
         try:
             await validate_input(self.hass, user_input)
@@ -121,7 +122,6 @@ class OpenAIOptionsFlow(OptionsFlow):
 
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
-        self.config_entry = config_entry
         self.last_rendered_recommended = config_entry.options.get(
             CONF_RECOMMENDED, False
         )
@@ -157,7 +157,7 @@ class OpenAIOptionsFlow(OptionsFlow):
 def openai_config_option_schema(
     hass: HomeAssistant,
     options: dict[str, Any] | MappingProxyType[str, Any],
-) -> dict:
+) -> VolDictType:
     """Return a schema for OpenAI completion options."""
     hass_apis: list[SelectOptionDict] = [
         SelectOptionDict(
@@ -173,7 +173,7 @@ def openai_config_option_schema(
         for api in llm.async_get_apis(hass)
     )
 
-    schema = {
+    schema: VolDictType = {
         vol.Optional(
             CONF_PROMPT,
             description={

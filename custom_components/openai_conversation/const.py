@@ -5,11 +5,13 @@ import logging
 DOMAIN = "openai_conversation"
 LOGGER: logging.Logger = logging.getLogger(__package__)
 
+DEFAULT_CONVERSATION_NAME = "OpenAI Conversation"
+DEFAULT_NAME = "OpenAI Conversation"
+
 CONF_BASE_URL = "base_url"
 CONF_CHAT_MODEL = "chat_model"
 CONF_FILENAMES = "filenames"
 CONF_MAX_TOKENS = "max_tokens"
-CONF_PROMPT = "prompt"
 CONF_PROMPT = "prompt"
 CONF_PROXY = "proxy"
 CONF_REASONING_EFFORT = "reasoning_effort"

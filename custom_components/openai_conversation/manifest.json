@@ -1,9 +1,9 @@
 {
   "domain": "openai_conversation",
   "name": "OpenAI",
-  "version": "2025.9.0",
+  "version": "2025.10.0",
   "after_dependencies": ["assist_pipeline", "intent"],
-  "codeowners": ["@balloob"],
+  "codeowners": [],
   "config_flow": true,
   "dependencies": ["conversation"],
   "documentation": "https://www.home-assistant.io/integrations/openai_conversation",
